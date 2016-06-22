@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>编辑内容</title>
+<layout name="Inc:edit_page" cache="0" />
+<layout name="Inc:ueditor" cache="0" />
+
+</head>
+<body>
+<div class="nav-site">{~getNavSite($nav_site,$_GET['cid'])} 网站后台 > 系统管理 > 预约管理</div>
+<form action="__APP__/Admin/Reservation/sendSM" method="post" enctype="multipart/form-data" class="form">  
+	<input type="hidden" id="id" name="id" value="{$obj.id}">
+	<input type="hidden" id="phone" name="phone" value="{$obj.phone}">
+	<volist name="obj" id="obj">
+   <fieldset>
+       <ul class="align-list">
+           <li>
+           		<label>记录岁数</label>
+				{$obj.c_years}           
+           </li>
+           <li>
+               <label>姓名</label>
+               {$obj.name}
+           </li>
+           <li>
+               <label>性別</label>
+               {:bog($obj.gender)}
+           </li>
+           <li>
+               <label>出生日期</label>
+               {$obj.birthday}
+           </li>
+           <li>
+               <label>身高</label>
+               {$obj.height}cm
+           </li>
+           <li>
+               <label>体重</label>
+               {$obj.weight}kg
+           </li>
+           <li>
+               <label>近一年长多高</label>
+               {$obj.next_Height}cm
+           </li>
+           <li>
+               <label>开始发育年龄</label>
+               {$obj.start_age}岁
+           </li>
+           <li>
+               <label>目前主要问题</label>
+               {$obj.problem}
+           </li>
+           <li>
+               <label>第几胎</label>
+               {$obj.tire}
+           </li>
+           <li>
+               <label>第几产</label>
+               {$obj.produce}
+           </li>
+           <li>
+               <label>胎位</label>
+               {$obj.position}
+           </li>
+           <li>
+               <label>是否平产</label>
+               {$obj.safe}
+           </li>
+           <li>
+               <label>出生时体重</label>
+               {$obj.birth_weight}KG
+           </li>
+           <li>
+               <label>出生时身长</label>
+               {$obj.birth_length}CM
+           </li>
+           <li>
+               <label>母孕期有无重大疾病</label>
+               {$obj.disease}
+           </li>
+           <li>
+               <label>孩子有无慢性疾病</label>
+               {$obj.chronic}
+           </li>
+           <li>
+               <label>父亲身高</label>
+               {$obj.f_height}CM
+           </li>
+           <li>
+               <label>母亲身高</label>
+               {$obj.m_height}CM
+           </li>
+           <li>
+               <label>父母是否肥胖</label>
+               {:isFat($obj['obesity'])}
+           </li>
+           <li>
+               <label>家族有无遗传病史</label>
+                {:yon($obj['hereditary'])}
+           </li>
+           <li>
+               <label>遗传疾病名称</label>
+               {$obj.hereditary_text}
+           </li>
+         
+           <li>
+           		<label>手机号码</label>
+				{$obj.phone}           
+           </li>
+           
+         
+    </fieldset>
+    </volist>
+    <fieldset>
+       <ul class="align-list">
+      		<li>
+               <label></label>
+               <input type="button" value="返回列表" onclick="javascript:history.go(-1);" class="button button-big" />
+            </li>
+       </ul>
+</form>
+
+<layout name="Inc:edit_seo_option" cache="0" />
+
+</body>
+</html>

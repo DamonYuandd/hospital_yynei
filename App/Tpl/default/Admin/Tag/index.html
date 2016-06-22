@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Tag管理</title>
+<link rel="stylesheet" type="text/css" href="__ADMIN__/Public/css/base.css" />
+<script src="__ADMIN__/Public/js/jquery-1.7.1.min.js"></script>
+<script src="__ADMIN__/Public/js/base.js"></script>
+
+<script>
+function Data(){
+	this._APP_ = "__APP__";
+	this.c_root = "<?php echo $_SESSION['c_root']; ?>";
+	this.get_cid = "<?php echo $_GET['cid']; ?>"
+	this.actionName = "Category";
+}
+</script>
+<script src="__ADMIN__/Public/js/index_category.js"></script>
+
+</head>
+<body>
+<div class="nav-site">{~getNavSite($nav_site,2)} &gt; Tag管理</div>
+
+<form action="" method="post" id="form_list">
+<input type="hidden" name="cid" value="{.cid}" />
+<table class="grid-function" border="0" cellpadding="0" cellspacing="0">
+	<thead>
+		<tr>
+			<th width="600">
+				<div class="qw-fl grid-add-data">
+					<input type="button" value="添加tag" onclick="goToUrl('__APP__/Admin/Tag/editAdd/pid/{$Think.session.c_root}/cid/{$_GET['cid']}');" class="button-img-add" />
+				</div>
+				
+				<div class="qw-fr">
+				</div>
+			</th>
+		</tr>
+	</thead>
+</table>
+<table class="grid-table" border="1" cellpadding="0" cellspacing="0"> 
+	<thead> 
+		<tr>
+			<th width="15"><input type="checkbox" id="chk_all"></th>
+		    <th>tag名称</th>
+		    <th width="30">分类</th>
+		    <th width="180">操作</th>
+		</tr> 
+	</thead> 
+	<tbody>
+		<volist name="tags" id="vo">
+			
+			<tr>
+		      <td><input type="checkbox" name="ids[]" id="ids{$vo.id}" value="{$num},{$vo.id}"></td>
+		      <td>{$vo.title}</td>
+		      <td>{$vo.category_id|getCategoryTitle}</td>
+		      <td align="left">
+		      [<a href="#" onclick="deleteData('__APP__/Admin/Tag/deletetag/id/{$vo.id}');">删除</a>]
+		      </td>
+		    </tr>
+		     
+	    </volist>
+	</tbody>
+</table>
+</form>
+
+
+</body>
+</html>
+
+
+ 

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>编辑分类</title>
+
+<link rel="stylesheet" type="text/css" href="__ADMIN__/Public/css/base.css" />
+<script src="__ADMIN__/Public/js/jquery-1.7.1.min.js"></script>
+<script src="__ADMIN__/Public/js/base.js"></script>
+
+<script>
+$(function(){
+	$("input[name=lang][value=<?php echo $obj['lang']; ?>]").attr("checked", true).siblings().attr('disabled',true);
+	var pid = "<?php echo $_SESSION['c_root']; ?>";
+	$('#synch_mobile').click(function(){
+		if( $(this).is(':checked') ) {
+			$('#one_mobile_category_id').html('');
+			$('#li_mobile_category').show();
+			/*var lang = $('input[name=lang]:checked').val();
+			if(lang==''){
+				lang = $('input[name=lang]').val();
+			}*/
+			$.getJSON("__APP__/Admin/Index/selectMobileCategoryByPid",{"pid":pid,"hwe":'mobile'},function(json){
+				$('#one_mobile_category_id').append('<option value="mobile" selected>顶级分类</option>');
+				if( json.list!=undefined ) {
+					$(json.list).each(function(i,obj){
+						var str_tr = '<option value="'+obj.id+'">'+obj.title+'</option>';
+						$('#one_mobile_category_id').append(str_tr);
+					});
+				}
+			});
+		} else {
+			$('#li_mobile_category').hide();
+		}
+	});
+	
+	//有封面文章使用
+	$('#delete_image').click(function(){
+		if( confirm('确定要删除图片吗？') ) {
+			$.get('__APP__/Admin/Category/deleteImage',{'id':"<?php echo $obj['id'];?>"},function(bool){
+				if( bool==1 ) {
+					$('input[name=image]').val('');
+					$('#span_image').css('display','none');
+				}
+			});
+		}
+	});
+	
+});
+
+</script>
+
+</head>
+<body>
+
+<div class="nav-site">{~getNavSite($nav_site,2)} &gt; 分类管理 &gt; 编辑分类</div>
+
+<form action="__APP__/Admin/Tag/save" method="post" enctype="multipart/form-data" class="form" id="categoryForm">
+   <fieldset>
+       <ul class="align-list">
+			<li id="li_lang">
+            {~isLang()}
+			</li>
+			<li>
+               <label>分类</label>
+               <select name="category_id">
+               		{:selectCateoryOptions($_GET['pid'],'zh-cn','pc')}
+               </select>
+           </li>
+           <li>
+               <label>tag名称</label>
+               <input type="text" id="title" name="title" value="{$obj.title}" class="type-text">
+           </li>
+          
+           <li>
+               <label></label>
+               <input type="submit" value="确定并保存" name="save" class="button button-green button-big" />
+               <input type="button" value="返回列表" onclick="javascript:history.go(-1);" class="button button-big" />
+            </li>
+        </ul>
+    </fieldset>
+</form>
+
+</body>
+</html>

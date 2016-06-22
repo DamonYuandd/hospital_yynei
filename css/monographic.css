@@ -1,0 +1,163 @@
+@import url(common.css);
+.boneageList, .otherMonographicList1 {
+  *height: 1%; }
+  .boneageList:after, .otherMonographicList1:after {
+    clear: both;
+    content: '.';
+    display: block;
+    height: 0;
+    line-height: 0;
+    overflow: hidden; }
+
+/* CSS Document */
+.asidePop {
+  display: none; }
+
+.precocious001 {
+  height: 665px;
+  background: url(../images/monographic/precocious001.jpg) no-repeat center top; }
+
+.precocious002 {
+  height: 690px;
+  background: url(../images/monographic/precocious002.jpg) no-repeat center top; }
+
+.precocious003 {
+  height: 650px;
+  background: url(../images/monographic/precocious003.jpg) no-repeat center top; }
+
+.precocious004 {
+  height: 650px;
+  background: url(../images/monographic/precocious004.jpg) no-repeat center top; }
+
+.precocious005 {
+  height: 500px;
+  background: url(../images/monographic/precocious005.jpg) no-repeat center top; }
+
+.precocious006 {
+  height: 480px;
+  background: url(../images/monographic/precocious006.jpg) no-repeat center top; }
+
+.precocious007 {
+  height: 496px;
+  background: url(../images/monographic/precocious007.jpg) no-repeat center top; }
+
+.boneage001 {
+  height: 440px;
+  background: url(../images/monographic/boneage001.jpg) no-repeat center top; }
+
+.boneage002 {
+  height: 634px;
+  margin-top: 20px;
+  background: url(../images/monographic/boneage002.jpg) no-repeat center top; }
+
+.boneage003 {
+  height: 633px;
+  background: url(../images/monographic/boneage003.jpg) no-repeat center top; }
+
+.boneage004 {
+  height: 651px;
+  background: url(../images/monographic/boneage004.jpg) no-repeat center top; }
+
+.boneage005 {
+  height: 622px;
+  background: url(../images/monographic/boneage005.jpg) no-repeat center top; }
+
+.boneage006 {
+  background: #e7f5cb; }
+
+.boneage007 {
+  height: 448px;
+  background: url(../images/monographic/boneage007.jpg) no-repeat center top; }
+
+.misunderstanding {
+  height: 386px;
+  background: url(../images/monographic/boneage006.jpg) no-repeat center top; }
+
+.boneageList {
+  padding: 185px 0 0 255px; }
+  .boneageList li {
+    float: left;
+    display: inline;
+    width: 140px;
+    height: 176px;
+    margin: 0 20px; }
+
+.obesity001 {
+  height: 666px;
+  background: url(../images/monographic/obesity001.jpg) no-repeat center top; }
+
+.obesity002 {
+  height: 400px;
+  background: url(../images/monographic/obesity002.jpg) no-repeat center top; }
+
+.obesity003 {
+  height: 676px;
+  background: url(../images/monographic/obesity003.jpg) no-repeat center top; }
+
+.obesity004 {
+  height: 365px;
+  background: url(../images/monographic/obesity004.jpg) no-repeat center top; }
+
+.obesity005 {
+  height: 535px;
+  background: url(../images/monographic/obesity005.jpg) no-repeat center top; }
+
+.obesity006 {
+  height: 700px;
+  background: url(../images/monographic/obesity006.jpg) no-repeat center top; }
+
+.obesity007 {
+  height: 375px;
+  background: url(../images/monographic/obesity007.jpg) no-repeat center top; }
+
+.undersized001 {
+  height: 720px;
+  background: url(../images/monographic/undersized001.jpg) no-repeat center top; }
+
+.undersized002 {
+  height: 650px;
+  background: url(../images/monographic/undersized002.jpg) no-repeat center top; }
+
+.undersized003 {
+  height: 580px;
+  background: url(../images/monographic/undersized003.jpg) no-repeat center top; }
+
+.undersized004 {
+  height: 619px;
+  background: url(../images/monographic/undersized004.jpg) no-repeat center top; }
+
+.undersized005 {
+  height: 655px;
+  background: url(../images/monographic/undersized005.jpg) no-repeat center top; }
+
+.undersized006 {
+  height: 837px;
+  background: url(../images/monographic/undersized006.jpg) no-repeat center top; }
+
+.otherMonographicList1 {
+  padding: 100px 0 0 80px; }
+  .otherMonographicList1 li {
+    float: left;
+    display: inline;
+    width: 237px;
+    height: 176px;
+    margin: 0 11px; }
+
+.monographicAside {
+  position: fixed;
+  right: 20px;
+  top: 80px;
+  width: 127px;
+  height: 608px;
+  background: url(../images/monographic/asideNavBg01.png) no-repeat center top; }
+  .monographicAside.precociousBg {
+    background: url(../images/monographic/asideNavBg02.png) no-repeat center top; }
+  .monographicAside.obesityBg {
+    background: url(../images/monographic/asideNavBg03.png) no-repeat center top; }
+  .monographicAside .nav {
+    padding-top: 175px; }
+    .monographicAside .nav a {
+      display: block;
+      height: 60px; }
+    .monographicAside .nav a.top {
+      margin-top: 40px; }

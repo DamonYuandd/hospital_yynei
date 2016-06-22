@@ -1,0 +1,100 @@
+%ell {
+    overflow: hidden;
+	-ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+%dib {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+%clearfix {
+    &:after {
+        clear: both;
+        content: '.';
+        display: block;
+        height: 0;
+        line-height: 0;
+        overflow: hidden;
+    }
+    *height: 1%;
+}
+%position {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+%percent {
+	width: 100%;
+	height: 100%;
+}
+@mixin f-webkit($type, $value){
+	-webkit-#{$type}: $value;
+	-moz-#{$type}: $value;
+	-ms-#{$type}: $value;
+	-o-#{$type}: $value;
+	#{$type}: $value;
+}
+@mixin b-webkit($type, $value){
+	#{$type}: -webkit-#{$value};
+	#{$type}: -moz-#{$value};
+	#{$type}: -ms-#{$value};
+	#{$type}: -o-#{$value};
+	#{$type}: #{$value};
+}
+
+%dis-box {
+	@include b-webkit(display, box);
+}
+
+%txt-ver {
+	@extend %dis-box;
+	@include f-webkit(box-align, center);
+}
+
+%txt-hor {
+	@extend %dis-box;
+	@include f-webkit(box-pack, center);
+}
+%all-none {
+	padding: 0;
+	margin: 0;
+	border: none;
+}
+@mixin opacity($color, $value){
+	opacity: $value / 100;
+	filter: alpha(opacity = $value);
+	background: $color;
+}
+@mixin arrow($direction, $size, $color) {
+    width: 0;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+    overflow: hidden;
+    border-width: $size;
+    cursor: pointer;
+    @if $direction == top {
+        border-style: dashed dashed solid dashed;
+        border-color: transparent transparent $color transparent;
+        border-top: none;
+    }
+    @else if $direction == bottom {
+        border-style: solid dashed dashed dashed;
+        border-color: $color transparent transparent transparent;
+        border-bottom: none;
+    }
+    @else if $direction == right {
+        border-style: dashed dashed dashed solid;
+        border-color: transparent transparent transparent $color;
+        border-right: none;
+    }
+    @else if $direction == left {
+        border-style: dashed solid dashed dashed;
+        border-color: transparent $color transparent transparent;
+        border-left: none;
+    }
+}
